@@ -36,7 +36,7 @@ export default async function UserPosts() {
                   Location: {voice.location}
                 </p>
               </div>
-              <DeleteButton key={voice.voice_id} />
+              <DeleteButton voiceId={voice.voice_id} />
 
               {/* Comments for the Voice */}
               <details className="group">
