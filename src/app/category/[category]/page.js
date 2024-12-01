@@ -28,6 +28,7 @@ export default async function CategoryVoices() {
       {voices.map((voices) => {
         return (
           <ul
+            key={voice.voice_id}
             className="space-y-4 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-gray-200"
             style={{ maxHeight: "16rem" }}
           >
