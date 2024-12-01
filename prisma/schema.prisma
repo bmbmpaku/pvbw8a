@@ -14,7 +14,62 @@ datasource db {
 }
 
 model User {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
+  user_id         Int      @id @default(autoincrement())
+  username        String   @unique
+  email           String   @unique
+  password_hash   String
+  profile_picture String?
+  created_at      DateTime @default(now())
+  updated_at      DateTime @updatedAt
+  Voices          Voice[]
+  Comments        Comment[]
+  Amplifiers      Amplifier[]
+}
+
+model Voice {
+  voice_id         Int        @id @default(autoincrement())
+  user_id          Int
+  content          String
+  category         String?
+  location         String?
+  amplifiers_count Int        @default(0)
+  created_at       DateTime   @default(now())
+  updated_at       DateTime   @updatedAt
+  user             User       @relation(fields: [user_id], references: [user_id])
+  Comments         Comment[]
+  Amplifiers       Amplifier[]
+}
+
+model Comment {
+  comment_id  Int      @id @default(autoincrement())
+  voice_id    Int
+  user_id     Int
+  content     String
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+  voice       Voice    @relation(fields: [voice_id], references: [voice_id])
+  user        User     @relation(fields: [user_id], references: [user_id])
+}
+
+model Amplifier {
+  amplifier_id Int      @id @default(autoincrement())
+  voice_id     Int
+  user_id      Int
+  created_at   DateTime @default(now())
+  voice        Voice    @relation(fields: [voice_id], references: [voice_id])
+  user         User     @relation(fields: [user_id], references: [user_id])
+}
+
+model Category {
+  category_id   Int      @id @default(autoincrement())
+  category_name String   @unique
+  created_at    DateTime @default(now())
+  updated_at    DateTime @updatedAt
+}
+
+model Location {
+  location_id   Int      @id @default(autoincrement())
+  location_name String   @unique
+  created_at    DateTime @default(now())
+  updated_at    DateTime @updatedAt
 }
