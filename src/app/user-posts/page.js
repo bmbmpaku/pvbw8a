@@ -26,6 +26,7 @@ export default async function UserPosts() {
               className="bg-gray-50 p-4 rounded-lg shadow-sm hover:shadow-md transition "
             >
               <div>
+                <p>{voice.username} voiced:</p>
                 <h3 className="text-lg font-semibold text-gray-700">
                   {voice.content}
                 </h3>
@@ -36,7 +37,7 @@ export default async function UserPosts() {
                   Location: {voice.location}
                 </p>
               </div>
-              <DeleteButton voiceId={voice.voice_id} />
+              <DeleteButton key={voice.voice_id} voice_id />
 
               {/* Comments for the Voice */}
               <details className="group">
