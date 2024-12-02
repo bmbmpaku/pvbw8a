@@ -13,11 +13,13 @@ export default function RootLayout({ children }) {
               <Image
                 src="/logo.svg"
                 alt="Logo"
-                class="w-10 h-10"
+                className="w-10 h-10"
                 width={10}
                 height={10}
               />
-              <h1 class="text-lg font-bold text-gray-800">Parking Voices</h1>
+              <h1 className="text-lg font-bold text-gray-800">
+                Parking Voices
+              </h1>
             </div>
             <nav className="hidden sm:flex space-x-6">
               <Link
@@ -41,17 +43,17 @@ export default function RootLayout({ children }) {
               {/* <Link href="/UserAccount">MyAccount</Link> */}
             </nav>
             {/* User Icon & Menu*/}
-            <div class="flex items-center space-x-4">
+            <div className="flex items-center space-x-4">
               {/* User Avatar */}
-              <div class="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center text-white">
-                <i class="fas fa-user"></i>
+              <div className="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center text-white">
+                <i className="fas fa-user"></i>
               </div>
 
               {/* Menu Icon */}
-              <button class="sm:hidden text-gray-600 focus:outline-none">
+              <button className="sm:hidden text-gray-600 focus:outline-none">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="h-6 w-6"
+                  className="h-6 w-6"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"

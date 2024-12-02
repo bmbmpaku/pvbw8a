@@ -10,8 +10,8 @@ export default function PostVoices() {
     const category = formData.get("category");
     const location = formData.get("location");
     await db.query(
-      `INSERT INTO voices (user_id, content, category, location) VALUES (1,$1, $2, $3)`,
-      [content, category, location]
+      `INSERT INTO voices (username, content, category, location) VALUES ($1,$2, $3, $4)`,
+      [username, content, category, location]
     );
     // await db.query(`INSERT INTO users (username) VALUES ($1)`, [username]);
     try {
@@ -35,7 +35,7 @@ export default function PostVoices() {
       style={{ bottom: "0", left: "0" }}
     >
       <h3 className="text-lg font-bold text-purple-900 mb-4">New Voice</h3>
-      <form onSubmit={handlePostVoices} className="space-y-4">
+      <form action={handlePostVoices} className="space-y-4">
         {/* Username Input */}
         <textarea
           name="username"
